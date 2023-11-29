@@ -1,0 +1,17 @@
+#container #main{
+	background-color: #FFF;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#container #main h2{
+	text-align: center;
+	font-size: 20px;
+}
+
+#container #main p{
+	text-indent: 2em;
+	font-size: 14px;
+	line-height: 30px;
+	margin: 10px;
+}
