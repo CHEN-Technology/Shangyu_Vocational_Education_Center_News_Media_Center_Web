@@ -7,7 +7,8 @@
 }
 
 body{
-	background-image: url("../images/37d3d539b6003af339f8bbb5322ac65c1138b6a0.jpg");
+	background-image: url("https://fanmingming.com/bing");
+	background-repeat: no-repeat;
 }
 
 #container{
@@ -50,8 +51,12 @@ body{
 	height: 100px;
 	font-size: 16px;
 	line-height: 30px;
-	color: #FFF;
-	background-image: url("../images/R-C.jpg");
+	color: #fff;
+	background: rgba( 255, 255, 255, 0.3 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	backdrop-filter: blur( 5px );
+	-webkit-backdrop-filter: blur( 5px );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 #container #footer a{
@@ -63,7 +68,7 @@ body{
 #container #footer a:hover{
 	font-size: 18px;
     color: #FFF;
-    text-decoration-line: underline;
+    border-bottom: 1px solid #fff;
 }
 
 .hoverable{
