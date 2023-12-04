@@ -100,6 +100,7 @@ body{
     right: 5%;
     background: linear-gradient(to bottom,transparent,#16161a 22%,#16161a 81%,transparent);
 	z-index: 11;
+	overflow: auto;
 }
 .titles a{
     display: block;
