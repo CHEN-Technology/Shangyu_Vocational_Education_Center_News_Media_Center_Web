@@ -5,10 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    /* 100%窗口宽高 */
     height: 100vh;
-    /* 弹性布局 居中显示 */
-    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f4f4f4;
