@@ -9,6 +9,7 @@
 body{
 	background-image: url("https://fanmingming.com/bing");
 	background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #container{
