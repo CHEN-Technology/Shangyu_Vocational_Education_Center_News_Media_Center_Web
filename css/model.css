@@ -54,6 +54,11 @@ body{
 	color: #fff;
 }
 
+#container #footer a img.logo{
+	width: 21px;
+	height: 21px;
+}
+
 .glass{
 	background: rgba( 47, 144, 226, 0.25 );
 	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
