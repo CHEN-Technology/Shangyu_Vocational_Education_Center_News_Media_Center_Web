@@ -1,6 +1,8 @@
 # 上虞区职业教育中心新闻媒体中心网页源代码
 
-Shangyu_Vocational_Education_Center_News_Media_Center_Web
+本项目是上虞区职业教育中心新闻媒体中心的网页源代码，网页错误请提交至 Issues 中。
+
+注意：本项目为纯静态网页，只通过 Python 脚本进行定时更新。
 
 ## 使用
 
@@ -8,7 +10,9 @@ Shangyu_Vocational_Education_Center_News_Media_Center_Web
 
     git clone https://github.com/CHEN-Technology/Shangyu_Vocational_Education_Center_News_Media_Center_Web.git
 
-## 更新
+## 轮播图更新
+
+轮播图是通过 Python 对微信公众平台进行内容的爬取，再通过多个 Python 脚本进行文件的更新。
 
 serverfile_updatescript 中的是服务器端更新网页文件的脚本，需放置在服务器中并使用 timer 计时器等方式定时执行。
 
