@@ -13,6 +13,21 @@ body{
     background-attachment: fixed;
 }
 
+body::-webkit-scrollbar {
+    width: 5px;
+	height: 5px;
+}
+
+body::-webkit-scrollbar-track{
+	border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(30, 30, 30, 0.5);
+}
+
 #container{
     width: 1250px;
     margin: 0 auto;
