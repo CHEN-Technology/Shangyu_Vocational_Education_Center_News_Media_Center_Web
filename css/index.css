@@ -141,3 +141,6 @@ body{
     /* 活动态下副标题显示 */
     display: block;
 }
+#container #footer a{
+    margin: 0px 10px;
+}
