@@ -20,13 +20,9 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<script src="https://cdn.bootcdn.net/ajax/libs/plyr/3.7.8/plyr.polyfilled.js"></script>
-		<link
-			rel="stylesheet"
-			href="https://cdn.bootcdn.net/ajax/libs/plyr/3.7.8/plyr.css"
-		/>
 		<script src="https://cdn.bootcdn.net/ajax/libs/hls.js/1.4.12/hls.js"></script>
 		<script src="https://cdn.bootcdn.net/ajax/libs/flv.js/1.6.2/flv.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
 		<!-- InstanceEndEditable -->
 	</head>
 	<body>
@@ -46,102 +42,66 @@
 			</div>
 			<div id="main">
 				<!-- InstanceBeginEditable name="main" -->
-				<video
-					id="player"
-					playsinline
-					controls
-					data-poster="/path/to/poster.jpg"
-					width="1250"
-					autoplay
-					muted
-				>
-					<track
-						kind="captions"
-						label="中文字幕"
-						src="#"
-						srclang="zh"
-						default
-					/>
-					<track
-						kind="captions"
-						label="英文字幕"
-						src="#"
-						srclang="en"
-						default
-					/>
-				</video>
+				<div id="dplayer"></div>
 
 				<script>
-					let vs = document.getElementById("player");
-					const player = new Plyr(vs, {
-						tooltips: {
-							controls: true,
-							seek: true,
-						},
-						i18n: {
-							play: "播放",
-							pause: "暂停",
-							speed: "速度",
-							played: "已播放",
-							buffered: "已缓冲",
-							currentTime: "当前时间",
-							duration: "总时间",
-							volume: "音量",
-							mute: "静音",
-							unmute: "取消静音",
-							normal: "正常",
-							disabled: "关闭",
-							quality: "画质",
-							captions: "字幕",
-							enableCaptions: "开启字幕",
-							disableCaptions: "关闭字幕",
-							enterFullscreen: "全屏",
-							exitFullscreen: "退出全屏",
-							settings: "设置",
-							start: "开始",
-							end: "结束",
-							all: "全部",
-							pip: "画中画",
-						},
-						captions: {
-							actice: true,
-							language: "auto",
-						},
-						controls: [
-							"play-large",
-							"play",
-							"progress",
-							"current-time",
-							"duration",
-							"mute",
-							"volume",
-							"captions",
-							"settings",
-							"pip",
-							"airplay",
-							"fullscreen",
-						],
-						settings: ["captions", "quality", "speed"],
-					});
-					//video_source
-					var video = document.getElementById("player");
-					// m3u8
-					// var videoSrc = 'http://10.1.10.111:8080/live/live.m3u8';
-					// if (Hls.isSupported()) {
-					//     var hls = new Hls();
-					//     hls.loadSource(videoSrc);
-					//     hls.attachMedia(video);
-					// }
-					// flv
-					if (flvjs.isSupported()) {
-						var flvPlayer = flvjs.createPlayer({
-							type: "flv",
-							isLive: true,
-							url: "http://10.1.10.111:8080/__defaultApp__/live_1080_60.flv",
+					function LoadPlayer(URL) {
+						const dp = new DPlayer({
+							container: document.getElementById("dplayer"),
+							live: true,
+							autoplay: true,
+							mutex: true,
+							lang: "zh-cn",
+							hotkey: true,
+							preload: "auto",
+							volume: 0.7,
+							playbackSpeed: [0.5, 0.75, 1, 1.25, 1.5, 2],
+							danmaku: true,
+							danmaku: {
+								api: "10.1.10.111:1207",
+								id: "82197825",
+								token: "zjzx",
+								user: "admin",
+								maximum: 1000,
+							},
+							apiBackend: {
+								read: function (options) {
+									console.log("Pretend to connect WebSocket");
+									options.success([]);
+								},
+								send: function (options) {
+									console.log(
+										"Pretend to send danmaku via WebSocket",
+										options.data
+									);
+									options.success();
+								},
+							},
+							video: {
+								quality: [
+									{
+										name: "原画",
+										url: "http://10.1.10.111:8080/__defaultApp__/live.flv",
+										type: "flv",
+									},
+									{
+										name: "1080P",
+										url: "http://10.1.10.111:8080/__defaultApp__/live_1080p.m3u8",
+										type: "m3u8",
+									},
+									{
+										name: "720P",
+										url: "http://10.1.10.111:8080/__defaultApp__/live_720p.m3u8",
+										type: "m3u8",
+									},
+								],
+								defaultQuality: 0,
+								pic: "https://bing.chentech.asia/api/getImage",
+								thumbnails: "https://bing.chentech.asia/api/getImage",
+							},
 						});
-						flvPlayer.attachMediaElement(video);
-						flvPlayer.load();
 					}
+					LoadPlayer();
 				</script>
 				<!-- InstanceEndEditable -->
 			</div>
