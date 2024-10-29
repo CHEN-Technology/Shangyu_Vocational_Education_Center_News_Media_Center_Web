@@ -4,6 +4,10 @@
 
 注意：本项目为纯静态网页，由 JS 侦测直播流的有效性来控制网站首页的重定向，网页内容则通过 Python 脚本进行定时更新。
 
+## 编写语言
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,python)](https://github.com/CHEN-Technology/Shangyu_Vocational_Education_Center_News_Media_Center_Web)
+
 ## 使用
 
 使用以下命令拉取文件至 Web 服务器中即可。
